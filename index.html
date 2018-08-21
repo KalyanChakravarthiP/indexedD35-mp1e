@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>:: New Project ::</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+    <title> :: Book Bang :: </title>
+
+    <style type="text/css">
+      
+        </style>
+
+    <link rel="stylesheet" href="styles/css/step4.css">
+	<link rel="stylesheet" type="text/css" href="styles/css/store.css">
+	<link rel="stylesheet" type="text/css" href="styles/css/step4.css">
+
+</head>
+<body id="body">
+	<div id="outer-wrap">
+<div id="inner-wrap">
+
+    <header id="top" role="banner">
+        <div class="block">
+            <h1 class="block-title"><i style="color:#fff; text-shadow:3px 3px 3px #000">BOOK BANGG</i></h1>
+            <a class="nav-btn" id="nav-open-btn" href="#nav">Book Navigation</a>
+        </div>
+    </header>
+
+    <nav id="nav" role="navigation">
+        <div class="block">
+            <h2 class="block-title">Chapters</h2>
+            <ul>
+                <li class="is-active">
+                    <a href="#education">About Us</a>
+                </li>
+             <li>
+                    <a href="#novels">Contact Us</a>
+                </li>
+             <!-- <li>
+                    <a href="#business"></a>
+                </li>
+             <li>
+                    <a href="#comic">Comic</a>
+                </li> -->
+
+                <li>
+                    <a href="manage.html">Manage Products</a>
+                </li>
+
+            </ul>
+            <a class="close-btn" id="nav-close-btn" href="#top">Return to Content</a>
+        </div>
+    </nav>
+
+</div>
+</div>
+<script type="text/javascript" src="styles/js/fetch.js"></script>
+<script type="text/javascript" src="styles/js/main.js"></script>
+<!-- <script type="text/javascript" src="styles/js/fetch.js"></script> -->
+
+<script type="text/javascript">
+	if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+  .then(function(registration) {
+    registration.addEventListener('updatefound', function() {
+      var installingWorker = registration.installing;
+      console.log('A new service worker is being installed:',
+        installingWorker);
+    });
+  })
+  .catch(function(error) {
+    console.log('Service worker registration failed:', error);
+  });
+} else {
+  console.log('Service workers are not supported.');
+}
+</script>
+</body>
+</html>

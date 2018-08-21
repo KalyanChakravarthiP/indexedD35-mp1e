@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>:: Products ::</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	
+	<link rel="stylesheet" href="styles/css/style.css">
+</head>
+<body>
+<div class="parent1" id="name">
+
+</div>
+
+<!-- <script type="text/javascript" src="styles/js/fetch.js"></script> -->
+
+
+<script type="text/javascript">
+var get={};
+	var query=window.location.search.substring(1).split("&");
+	for (var i = 0, max=query.length; i<max; i++) {
+		if (query[i]==="")
+			continue;
+		var param=query[i].split("=");
+		console.log(param);
+
+	}
+
+	console.log(param[1]);
+
+var main=document.querySelector("#name")
+
+var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
+
+var open = indexedDB.open("MyDatabase", 1);
+
+open.onupgradeneeded = function() {
+    var db = open.result;
+    var store = db.createObjectStore("MyObjectStore", {keyPath: "id"});
+    // var index = store.createIndex("NameIndex", ["data.name"]);
+};
+
+open.onsuccess = function() {
+    // Start a new transaction
+    var db = open.result;
+    var tx = db.transaction("MyObjectStore", "readwrite");
+    var store = tx.objectStore("MyObjectStore");
+    // var index = store.index("NameIndex");
+
+
+function getAllItems(callback) {
+    var trans = db.transaction("MyObjectStore", IDBTransaction.READ_ONLY);
+    var store = trans.objectStore("MyObjectStore");
+    var items = [];
+ 
+    trans.oncomplete = function(evt) {  
+        callback(items);
+    };
+ 
+    var cursorRequest = store.openCursor();
+ 
+    cursorRequest.onerror = function(error) {
+        console.log(error);
+    };
+ 
+    cursorRequest.onsuccess = function(evt) {                    
+        var cursor = evt.target.result;
+        if (cursor) {
+            items.push(cursor.value);
+            cursor.continue();
+        }
+    };
+}
+
+getAllItems(function (items) {
+	console.log(items[i]);
+	var main=document.querySelector("#name");
+	for(var i=0; i<items.length; i++){
+		if(param[1]==items[i].id){
+var leftDiv=document.createElement("div");
+			leftDiv.classList.add("leftChild");
+			// leftDiv.innerHTML=pro[i].name;
+			main.appendChild(leftDiv);
+			var pic=document.createElement("img");
+			pic.src=items[i].image;
+			var link =document.createElement("a");
+			link.href="#";
+			link.fontWeight="550";
+			link.textContent="Buy Now";
+			leftDiv.appendChild(pic);
+
+			leftDiv.appendChild(link);
+
+			var rightDiv=document.createElement("div");
+			rightDiv.classList.add("rightChild");
+			main.appendChild(rightDiv);
+
+			var h3=document.createElement("h3");
+			h3.textContent=items[i].name;
+			h3.style.color="#6366EC";
+
+			var price=document.createElement("h3");
+			price.textContent="₹: "+items[i].price;
+			price.style.color="red";
+
+			var description=document.createElement("p");
+			description.textContent=items[i].description;
+			description.style.textAlign="justify";
+
+			rightDiv.appendChild(h3);
+			rightDiv.appendChild(price);
+			rightDiv.appendChild(description);
+
+
+		}
+	}
+});
+
+}
+
+// var body=document.querySelector("#body")
+
+
+// fvar main=document.querySelector("#name")
+
+// function productData(pro){
+// 	for (var i =0; i<pro.length; i++){
+// 		if(pro[i].id==param[1]){
+// 			var leftDiv=document.createElement("div");
+// 			leftDiv.classList.add("leftChild");
+// 			// leftDiv.innerHTML=pro[i].name;
+// 			main.appendChild(leftDiv);
+// 			var pic=document.createElement("img");
+// 			pic.src=pro[i].image;
+// 			var link =document.createElement("a");
+// 			link.href="#";
+// 			link.fontWeight="550";
+// 			link.textContent="Buy Now";
+// 			leftDiv.appendChild(pic);
+
+// 			leftDiv.appendChild(link);
+
+
+// 			var rightDiv=document.createElement("div");
+// 			rightDiv.classList.add("rightChild");
+// 			main.appendChild(rightDiv);
+
+// 			var h3=document.createElement("h3");
+// 			h3.textContent=pro[i].name;
+// 			h3.style.color="#6366EC";
+
+// 			var price=document.createElement("h3");
+// 			price.textContent="Rs:"+pro[i].price;
+// 			price.style.color="red";
+
+// 			var description=document.createElement("p");
+// 			description.textContent=pro[i].description;
+// 			description.style.textAlign="justify";
+
+// 			rightDiv.appendChild(h3);
+// 			rightDiv.appendChild(price);
+// 			rightDiv.appendChild(description);
+
+// 		} 
+// 	} 
+// 	}
+
+	</script>
+	</body>
+</html>

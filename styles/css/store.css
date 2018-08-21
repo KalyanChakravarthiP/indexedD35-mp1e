@@ -1,0 +1,52 @@
+.mainDiv{
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	flex-wrap: wrap;
+}
+
+.childDiv{
+	width: 20%;
+	border:1px solid #ddd;
+	box-shadow:10px 10px 10px #ddd;
+	padding:2%;
+	margin:2%;
+	flex-wrap:wrap;
+}
+img{
+	width:203px;
+  height:248px;
+  display: block;
+  margin: 0 auto 0 auto;
+}
+
+h3{
+	text-align: center;
+}
+.a{
+color:#fff;
+  background:#5559CE;
+  padding:2%;
+  display:block;
+  font-weight:550;
+  box-shadow:5px 5px 5px #ddd;
+  text-decoration: none;
+  text-align: center;
+}
+@media only screen and (max-width:760px){
+	.mainDiv{
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	flex-wrap: wrap;
+}
+
+.childDiv{
+	width: 80%;
+	border:1px solid #ddd;
+	box-shadow:10px 10px 10px #ddd;
+	padding:2%;
+	margin:2%;
+	flex-wrap:wrap;
+}
+}
